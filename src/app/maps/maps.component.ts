@@ -21,7 +21,7 @@ export class MapsComponent {
     console.log(valor)
     const url = 'http://148.209.67.83/rest/items/find-by-metadata-field';
   const datos = {
-    key: 'arq.CategoriaActual',
+    key: 'arq.Nombre',
     value: valor
   };
 
