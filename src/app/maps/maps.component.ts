@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {Component } from '@angular/core';
 
 @Component({
   selector: 'app-maps',
@@ -13,11 +13,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       display: block;
     }
   `],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class MapsComponent {
 
   async buscarInformacion(valor:string){
+    console.log(valor)
     const url = 'http://148.209.67.83/rest/items/find-by-metadata-field';
   const datos = {
     key: 'arq.CategoriaActual',
@@ -37,6 +38,7 @@ export class MapsComponent {
     const respuesta = await fetch(url, opciones);
     
     if (!respuesta.ok) {
+      console.log("Respuesta no ok")
       throw new Error(`Error en la petición: ${respuesta.statusText}`);
     }
 
