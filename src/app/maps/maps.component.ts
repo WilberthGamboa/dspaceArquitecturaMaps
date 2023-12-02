@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import {Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 // cloud api AIzaSyDal8gWT9yatkSmST52fylAj0QGtf51tD4
 @Component({
   selector: 'app-maps',
@@ -21,12 +22,18 @@ export class MapsComponent implements OnInit  {
   safeUrl: SafeResourceUrl; // Change the type to SafeResourceUrl
   latitudCliente:number = 0
   longitudCliente:number = -0
-  constructor(private sanitizer: DomSanitizer) {
+  constructor(private sanitizer: DomSanitizer,private route: ActivatedRoute) {
     const unsafeUrl = 'your-unsafe-url'; // Replace 'your-unsafe-url' with the actual URL
     this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(unsafeUrl);
   }
   dataMaps:any = []
   ngOnInit() {
+    this.route.params.subscribe(async params => {
+    const id = params['id'];
+    console.log('ID de la URL:', id);
+      await this.buscarInformacion(id)
+    // Ahora puedes usar el valor de 'id' como desees
+  });
     this.getLocation();
   }
 
