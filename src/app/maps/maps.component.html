@@ -8,11 +8,10 @@
 
 <!--<input type="search" placeholder="Buscar" (keyup.enter)="buscarInformacion(miInputSearch.value)" #miInputSearch>
 -->
-<main class="container">
-  <div *ngFor="let item of dataMaps" class="card mb-3" style="max-width: 50rem;">
-    <p class="lead">Este es un título centrado y bonito con Bootstrap</p>
+<main class="container mt-5">
+  <div *ngFor="let item of dataMaps" class="card mb-3 mx-auto" style="max-width: 50rem;">
     <div class="card-body">
-      <h5 class="card-title">{{item.title}}</h5>
+      <h5 class="card-title text-center mt-3 mb-3">{{item.title}}</h5>
       <div style="max-width: 100%; overflow: hidden;">
         <iframe
           width="100%"
