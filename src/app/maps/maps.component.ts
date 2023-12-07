@@ -28,8 +28,8 @@ export class MapsComponent implements OnInit  {
   }
   dataMaps:any = []
   ngOnInit() {
-    this.route.params.subscribe(async params => {
-    const id = params['id'];
+    this.route.queryParams.subscribe(async params => {
+    const id = params['lugar'];
     console.log('ID de la URL:', id);
       await this.buscarInformacion(id)
     // Ahora puedes usar el valor de 'id' como desees
